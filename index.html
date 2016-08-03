@@ -1,5 +1,4 @@
-﻿<?php date_default_timezone_set("America/Sao_Paulo");?>
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8" />
@@ -259,26 +258,6 @@
             <div class="row wowload fadeInLeftBig">
                 <form action="#contato" method="post">
                     <div class="col-sm-6 col-sm-offset-3 col-xs-12">
-						<?php
-							if(isset($_POST['sendForm'])){
-							
-							$antispam 	= strip_tags(trim($_POST['antispam']));
-							$nome 		= strip_tags(trim($_POST['nome']));
-							$email 		= strip_tags(trim($_POST['email']));
-							$tel 		= strip_tags(trim($_POST['tel']));
-							$msg 		= strip_tags(trim($_POST['msg']));
-								if($antispam != 'zero' || $nome == '' || $email == '' || $tel == '' || $msg == ''){
-									echo '<div id="contato" class="alert alert-danger text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Preencha todos os campos corretamente.</div>';
-								}elseif(!preg_match("/^[a-z0-9_\.\-]+@[a-z0-9_\.\-]*[a-z0-9_\-]+\.[a-z]{2,4}$/i", $email)){	
-									echo '<div id="contato" class="alert alert-danger text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Informe um e-mail válido.</div>';
-								}elseif(strlen($msg) < 150){
-									echo '<div id="contato" class="alert alert-danger text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> O campo <strong>Mensagem *</strong> deve conter o mínimo de <b>150</b> caracteres.</div>';
-								}else{
-									echo '<meta http-equiv="refresh" content="10;index.php">';
-									require "includes/enviar.php";
-								}
-							}
-						?>
                         <input name="nome" type="text" pattern="[a-zA-Z\s]+$" placeholder="Nome *" value="">
                         <input name="email" type="email" placeholder="E-mail *">
                         <input name="tel" class="formfone" type="tel" placeholder="Celular *">
